@@ -3,8 +3,10 @@ var express  = require("express"),
     router   = express(),
     request  = require('request');
 
-var usercontroller = require('../controllers/usercontroller');
+// Requiring the middleware
 var middleware = require("../middleware");
+
+// Requiring the models
 const user = require("../models/user");
 
 router.get("/", function(req, res){
@@ -43,7 +45,7 @@ router.get("/project", function(req, res){
     res.render("user/project")
 })
 
-router.get("/newproject", function(req, res){
+router.get("/project/new", function(req, res){
     res.render("user/newproject")
 })
 
