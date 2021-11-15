@@ -39,6 +39,13 @@ router.get("/login", function(req, res){
     res.render("user/login")
 })
 
+router.get("/project", function(req, res){
+    res.render("user/project")
+})
+
+router.get("/newproject", function(req, res){
+    res.render("user/newproject")
+})
 
 router.get("/organization", function(req, res){
     res.render("user/organization")
