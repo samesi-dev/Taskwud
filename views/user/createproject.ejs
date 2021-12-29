@@ -1,0 +1,95 @@
+﻿<%- include('./partials/header'); -%>
+
+		<!--**********************************
+            Content body start
+        ***********************************-->
+		
+		<div class="content-body">
+			<div class="container-fluid">
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-header border-0">
+							<div>
+								<h1 class="fs-20 font-w700">Create Project</h1>
+							</div>
+						</div>
+						<div class="card-body">
+								
+							<form method="POST" action="/project" class="row g-3 d-flex justify-content-center">
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+								  <label class="form-label">Project Name</label>
+								  <input name="projectname" type="text" class="form-control" placeholder="Name" required >
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <label  class="form-label">Categoy</label>
+								  <input name="category" type="text" class="form-control" placeholder="Categoy" required>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+								  <label  class="form-label">Start Date</label>
+								  <input name="startDate" type="date" class="form-control" placeholder="Date" required>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Start time</label>
+									<input name="startTime" type="time" class="form-control" placeholder="Time" required>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">End Date</label>
+									<input name="endDate" type="date" class="form-control" placeholder="Date" required> 
+								</div>
+	
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label  class="form-label">End Time</label>
+									<input name="endTime" type="time" class="form-control" placeholder="Time" required>
+								</div>
+
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label  class="form-label">Budget</label>
+									<input name="budget" type="number" class="form-control" placeholder="Amount"required>
+								</div>
+	
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label  class="form-label">Description</label>
+									<input name="description" type="text" class="form-control" placeholder="description" required>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label class="form-label">Add Users</label>
+									<!-- <input id="userinput" type="text" name="users[]" class="form-control mb-3" placeholder="Name" onkeyup="manage(this)"> -->
+									<div class="d-flex flex-row">
+										<input id="userinput" type="text" name="users[]" class="form-control" placeholder="Name" onkeyup="showResults(this.value)">
+										<button id="addbtn" class="form-control" type="button" onClick="addInput();">+</button>
+									</div>
+									<div id="livesearch" class="p-3 d-none">
+										This
+									</div>
+									<div id="error" class="text-danger p-2">
+										
+									</div>
+									<div id="formulario" class="d-flex flex-row flex-wrap mt-2">
+										
+									</div>
+								</div>
+								<!-- <div class="col-xl-7 col-sm-7 col-md-7">
+									<label  class="form-label">Logo</label>
+									<input type="image" class="form-control" placeholder="Img">
+								</div>
+	
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label  class="form-label">Upoad File</label>
+									<input type="file" class="form-control" placeholder="Upload">
+								</div> -->	
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							  </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+        <!--**********************************
+            Content body end
+        ***********************************-->
+		
+
+<%- include('partials/footer'); -%>

@@ -1,0 +1,90 @@
+<%- include('./partials/header'); -%>
+
+		<!--**********************************
+            Content body start
+        ***********************************-->
+		
+		<div class="content-body">
+			<div class="container-fluid">
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-header border-0">
+							<div>
+								<h1 class="fs-20 font-w700">Organization</h1>
+							</div>
+							<div class="dropdown">
+								<div class="btn-link" data-bs-toggle="dropdown">
+									<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="12.4999" cy="3.5" r="2.5" fill="#A5A5A5"></circle>
+										<circle cx="12.4999" cy="11.5" r="2.5" fill="#A5A5A5"></circle>
+										<circle cx="12.4999" cy="19.5" r="2.5" fill="#A5A5A5"></circle>
+									</svg>
+								</div>
+							
+							
+							</div>
+						</div>
+						<div class="card-body">
+
+							<form action="/organization/<%= Org._id %>?_method=PUT" method="Post"  class="row g-3 d-flex justify-content-center">
+								<input name="createdby" type="hidden" class="form-control"  >
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+								  <label class="form-label">Organization Name</label>
+								  <input name="orgname" type="text" class="form-control" placeholder="Enter name" value="<%= Org.orgname %>"> 
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <label  class="form-label">Organization Description</label>
+								  <input name="orgdescription" type="text" class="form-control" value="<%= Org.orgdescription %>" >
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Address</label>
+									<input name="orgaddress" type="text" class="form-control" placeholder="Enter Address" value="<%= Org.orgaddress %>"">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Contact Number</label>
+									<input name="orgcontact" type="text" class="form-control" placeholder="(+92) 090078601" value="<%= Org.orgcontact %>"">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Email</label>
+									<input name="orgemail" type="email" class="form-control" placeholder="abc@netsol.com" value="<%= Org.orgemail %>"">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Total Number of Employees</label>
+									<input name="orgnumber" type="text" class="form-control" placeholder="300" value="<%= Org.orgnumber %>"">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label class="form-label">Add Organization Members</label>
+									<!-- <input id="userinput" type="text" name="users[]" class="form-control mb-3" placeholder="Name" onkeyup="manage(this)"> -->
+									<div class="d-flex flex-row">
+										<input id="userinput" type="text" class="form-control" name="orgmember" placeholder="abc@xyz.com" onkeyup="showResults(this.value)">
+										<button id="addbtn" class="form-control btn" type="button"  onClick="addInput();">+</button>
+									</div>
+									<div id="livesearch" class="p-3 d-none">
+										This
+									</div>
+									<div id="error" class="text-danger p-2">
+										
+									</div>
+									<div id="formulario" class="d-flex flex-row flex-wrap mt-2">
+										<% Org.orgmember.forEach(function(obj){ %>
+											<div class='input-group section mt-2' style='width: 120px;margin-right: 8px'><input type='text' class='form-control input' placeholder='Name' value='<%= obj %>'><div style='position: absolute; top: 0; right: 0; paddign-top: -5px'><input class='button' type='button' value='-'></div></div>
+										<% }) %>
+									</div>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<button type="submit" class="btn btn-primary">Update</button>
+								  </div>
+		
+							  </form>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		</div>
+			
+        <!--**********************************
+            Content body end
+        ***********************************-->
+		
+		<%- include('partials/footer'); -%>

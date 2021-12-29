@@ -1,13 +1,15 @@
 // requiring all dependencies
 var express           = require("express"),
-    router            = express(),
+    router            = express.Router({mergeParams: true}),
     passport          = require('passport');
+    
     // GoogleStrategy    = require('passport-google-oauth').OAuth2Strategy,
     // FacebookStrategy  = require('passport-facebook').Strategy;
 // Import User model
-var User = require('../models/user');
+var User = require('../models/user'); 
+
 // Handle index actions
-exports.index = function (req, res) {
+router.index = function (req, res) {
     User.find(function (err, users) {
         if (err) {
             res.json({
@@ -24,7 +26,7 @@ exports.index = function (req, res) {
 };
 
 // Handle create User actions
-exports.new = function (req, res) {
+router.new = function (req, res) {
     User.register(new User({
         username : req.body.username,
         email : req.body.email
@@ -45,7 +47,7 @@ exports.new = function (req, res) {
 };
 
 // Handle login action
-exports.login = function (req, res, next) {
+router.login = function (req, res, next) {
     passport.authenticate("local")(req, res, function(){
         if (req.isAuthenticated()){
             res.json({
@@ -61,7 +63,7 @@ exports.login = function (req, res, next) {
 };
 
 // Handle view User info
-exports.view = function (req, res) {
+router.view = function (req, res) {
     User.findById(req.params.id, function (err, user) {
         if (err)
             res.send(err);
@@ -73,7 +75,7 @@ exports.view = function (req, res) {
 };
 
 // Handle update User info
-exports.update = function (req, res) {
+router.update = function (req, res) {
     User.findByIdAndUpdate(req.params.id,{
         username : req.body.username,
         email : req.body.email
@@ -88,7 +90,7 @@ exports.update = function (req, res) {
     });
 };
 // Handle delete User
-exports.delete = function (req, res) {
+router.delete = function (req, res) {
     User.deleteOne({
         _id: req.params.id
     }, function (err, User) {
@@ -102,3 +104,5 @@ exports.delete = function (req, res) {
         );
     });
 };
+
+module.exports = router;

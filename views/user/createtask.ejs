@@ -1,0 +1,88 @@
+﻿<%- include('./partials/header'); -%>
+
+		<!--**********************************
+            Content body start
+        ***********************************-->
+		
+		<div class="content-body">
+			<div class="container-fluid">
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-header border-0">
+							<div>
+								<h1 class="fs-20 font-w700">Create Task</h1>
+							</div>
+							<div class="dropdown">
+								<div class="btn-link" data-bs-toggle="dropdown">
+									<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="12.4999" cy="3.5" r="2.5" fill="#A5A5A5"></circle>
+										<circle cx="12.4999" cy="11.5" r="2.5" fill="#A5A5A5"></circle>
+										<circle cx="12.4999" cy="19.5" r="2.5" fill="#A5A5A5"></circle>
+									</svg>
+								</div>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="javascript:void(0)">Delete</a>
+									<a class="dropdown-item" href="javascript:void(0)">Edit</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+								
+							<form method="POST" action="/task" class="row g-3 d-flex justify-content-center">
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+								  <label class="form-label">Task Name</label>
+								  <input name="taskname" type="text" class="form-control" placeholder="Name" >
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <label  class="form-label">instruction</label>
+								  <input name="instruction" type="text" class="form-control" placeholder="Enter Instruction" >
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Start date</label>
+									<input name="startDate" type="date" class="form-control" placeholder="Time">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Start time</label>
+									<input name="startTime" type="time" class="form-control" placeholder="Time">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">End date</label>
+									<input name="endDate" type="date" class="form-control" placeholder="Time">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">End time</label>
+									<input name="endTime" type="time" class="form-control" placeholder="Time">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label class="form-label">Add Users</label>
+									<!-- <input id="userinput" type="text" name="users[]" class="form-control mb-3" placeholder="Name" onkeyup="manage(this)"> -->
+									<div class="d-flex flex-row">
+										<input id="userinput" type="text" class="form-control" placeholder="abc@xyz.com" onkeyup="showResults(this.value)">
+										<button id="addbtn" class="form-control" type="button" onClick="addInput();">+</button>
+									</div>
+									<div id="livesearch" class="p-3 d-none">
+										This
+									</div>
+									<div id="error" class="text-danger p-2">
+										
+									</div>
+									<div id="formulario" class="d-flex flex-row flex-wrap mt-2">
+										
+									</div>
+								</div>
+	
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							  </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+        <!--**********************************
+            Content body end
+        ***********************************-->
+		
+		<%- include('partials/footer'); -%>

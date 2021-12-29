@@ -34,6 +34,181 @@ Design and Developed by: potenzaglobalsolutions.com
 ======================================
 [ End table content ]
 ======================================*/
+$(".professional-details").hide();
+
+function forwardForm(){
+  $('.personal-details').fadeOut(400, function() {
+    $('.professional-details').fadeIn(400, function(){
+      $(".personal-details").hide();
+    });
+  });
+}
+
+var counter = 1;
+var dynamicInput = [];
+var search = $("#livesearch");	
+
+function creatediv(userinput){
+  var newdiv = document.createElement('div');
+  if (userinput.value != '') {
+    newdiv.id = dynamicInput[counter];
+    newdiv.innerHTML = "<div class='input-group section mt-2' style='width: 120px;margin-right: 8px'><input type='text' name='users[]' class='form-control input' placeholder='Name' value='" + userinput.value + "'><div style='position: absolute; top: 0; right: 0; paddign-top: -5px'><input class='button' type='button' value='-'></div></div>";
+    
+    document.getElementById('formulario').appendChild(newdiv);
+    userinput.value = '';
+    counter++;
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(function(section){
+      const buttonFinder = $(section).find(".button");
+      $(buttonFinder).on('click', function(){
+        $(section).remove();
+      })
+    })
+    $('#error').hide();
+  }
+  else {
+    $('#error').show();
+    $('#error').html("please enter the email")
+  }
+  search.addClass("d-none");
+}
+
+//add users to the input div
+function addInput() {
+  var userinput = document.querySelector('#userinput');
+  $("#formulario").find(":input[type=text]").each(function(){
+    if (userinput.value == $(this).val()){
+      alert("err");
+      script.stop;
+    }
+    else {
+      creatediv(userinput);
+      script.stop;
+    }
+  });
+  creatediv(userinput);  
+}
+
+// function manage(userinput) {
+// 	var btn = document.getElementById('addbtn');
+// 	if (userinput.value != '') {
+// 		btn.disabled = false;
+// 	}
+// 	else {
+// 		btn.disabled = true;
+// 	}
+// }
+
+// show suggestion when typing
+function showResults(str) {
+  if(str.length === 0){
+    search.addClass("d-none");
+  }
+  else {
+    search.removeClass("d-none");
+  }
+
+  $.ajax({
+    url: "/search",
+    method: "POST",
+    data: {query : str},
+    dataType: "json",
+    success: function(result){
+      search.html(result.response);
+      $('#livesearch a').click(function(e) {
+        var txt = $(e.target).text();
+        userinput.value = txt;
+        search.addClass("d-none");
+      });
+    }
+  })
+}
+// function for checking input in letters
+function allLetter(inputtxt)
+      { 
+      var letters = /^[A-Za-z/s]*$/;
+      if(inputtxt.value.match(letters))
+      {
+      
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      // function for checking phone number
+  function phonenumber(inputtxt)
+      {
+        var phoneno = /^[0-9]{11}$/;
+        if(inputtxt.value.match(phoneno))
+           {
+           return true;      
+         }
+         else
+           {
+           alert("Not a valid Phone Number");
+           return false;
+           }
+      }
+		
+  function onlyNumberKey(evt) { 
+          
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+      }
+
+      
+function cardsCenter()
+{
+
+/*  testimonial one function by = owl.carousel.js */
+
+
+
+jQuery('.card-slider').owlCarousel({
+  loop:true,
+  margin:10,
+  nav:false,
+  //center:true,
+  slideSpeed: 3000,
+  paginationSpeed: 3000,
+  dots: false,
+  navText: ['', ''],
+  responsive:{
+    0:{
+      items:1
+    },
+    576:{
+      items:2
+    },	
+    800:{
+      items:2
+    },			
+    991:{
+      items:2
+    },
+    1200:{
+      items:3
+    },
+    1600:{
+      items:4
+    }
+  }
+})
+}
+
+jQuery(window).on('load',function(){
+setTimeout(function(){
+  cardsCenter();
+}, 1000); 
+});
+
  
 //POTENZA var
 var POTENZA = {};

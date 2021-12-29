@@ -1,0 +1,74 @@
+<%- include('./partials/header'); -%>
+
+		<!--**********************************
+            Content body start
+        ***********************************-->
+		
+		<div class="content-body">
+			<div class="container-fluid">
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-header border-0">
+							<div>
+								<h1 class="fs-20 font-w700">Create Organization</h1>
+							</div>
+					
+						</div>
+						<div class="card-body">
+								
+							<form name="form1" method="POST" action="/organization" class="row g-3 d-flex justify-content-center">
+								<input name="createdby" type="hidden" class="form-control"  >
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+								  <label class="form-label">Organization Name</label>
+								  <input name="orgname" type="text" class="form-control" onkeyup="allLetter(document.form1.orgname)" placeholder="Enter name" required >
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <label  class="form-label">Organization Description</label>
+								  <input name="orgdescription" type="text" class="form-control" placeholder="Enter Description" required >
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Address</label>
+									<input name="orgaddress" type="text" class="form-control" placeholder="Enter Address">
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Contact Number</label>
+									<input name="orgcontact" type="tel" pattern="[0-9]{11}" class="form-control" placeholder="(+92) 090078601" required>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7 ">
+									<label  class="form-label">Email</label>
+									<input name="orgemail" type="email" class="form-control" placeholder="abc@netsol.com" required>
+								</div>
+								<div class="col-xl-7 col-sm-7 col-md-7">
+									<label class="form-label">Add Organization Members</label>
+									<!-- <input id="userinput" type="text" name="users[]" class="form-control mb-3" placeholder="Name" onkeyup="manage(this)"> -->
+									<div class="d-flex flex-row">
+										<input id="userinput" type="text" class="form-control" name="orgmember" placeholder="abc@xyz.com" onkeyup="showResults(this.value)">
+										<button id="addbtn" class="form-control btn" type="button"  onClick="addInput();">+</button>
+									</div>
+									<div id="livesearch" class="p-3 d-none">
+										This 
+									</div>
+									<div id="error" class="text-danger p-2">
+										
+									</div>
+									<div id="formulario" class="d-flex flex-row flex-wrap mt-2">
+										
+									</div>
+								</div>
+	
+								<div class="col-xl-7 col-sm-7 col-md-7">
+								  <button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							  </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+        <!--**********************************
+            Content body end
+        ***********************************-->
+		
+
+<%- include('partials/footer'); -%>

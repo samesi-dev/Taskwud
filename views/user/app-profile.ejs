@@ -1,0 +1,141 @@
+﻿<%- include('./partials/header'); -%>
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="profile card card-body px-3 pt-3 pb-0">
+                            <div class="profile-head">
+                                <div class="photo-content">
+                                    <div class="cover-photo rounded"></div>
+                                </div>
+                                <div class="profile-info">
+									<div class="profile-photo">
+										<div class="circle-3"><%= findUser.username.charAt(0) %></div>
+									</div>
+									<div class="profile-details">
+										<div class="profile-name px-3 pt-2">
+											<h4 class="text-primary mb-0"><%= findUser.username %></h4>
+											<p><%= findUserData.jobName %></p>
+										</div>
+										<div class="profile-email px-2 pt-2">
+											<h4 class="text-muted mb-0"><%= findUser.email %></h4>
+											<p>Email</p>
+										</div>
+										<div class="dropdown ms-auto">
+											<a href="#" class="btn btn-primary light sharp" data-bs-toggle="dropdown" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
+											<ul class="dropdown-menu dropdown-menu-end">
+												<li class="dropdown-item"><a href="/user-details/edit"><i class="fa fa-user-circle text-primary me-2"></i> Edit profile</a></li>
+												<li class="dropdown-item"><a href="#" class="cd-popup-trigger"><i class="fa fa-users text-primary me-2"></i> Delete Account</a></li>
+											</ul>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="profile-tab">
+                                    <div class="custom-tab-1">
+                                        <div class="tab-content">
+                                            <div id="about-me" class="tab-pane fade active show">
+                                                <div class="profile-about-me">
+                                                    <div class="pt-4 border-bottom-1 pb-3">
+                                                        <h4 class="text-primary">About Me</h4>
+                                                        <p class="mb-2"><%= findUserData.about %></p>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-skills mb-5">
+                                                    <h4 class="text-primary mb-2">Skills</h4>
+                                                    <% findUserData.skills.forEach(function(skill){ %>
+                                                        <a href="javascript:void(0);" class="btn btn-primary light btn-xs mb-1"><%= skill %></a>
+                                                    <% }) %>
+                                                </div>
+                                                <div class="profile-personal-info">
+                                                    <h4 class="text-primary mb-4">Personal Information</h4>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Name <span class="pull-end">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUser.username %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Email <span class="pull-end">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUser.email %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">CNIC <span class="pull-end">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUserData.CNIC %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">City <span class="pull-end">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUserData.city %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Country <span class="pull-end">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUserData.country %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Contact Number <span class="pull-end">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUserData.contact %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Year Experience <span class="pull-end">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7"><span><%= findUserData.jobExperience %></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <div class="cd-popup possition-relative" role="alert">
+            <div class="cd-popup-container">
+                <p>Are you sure you want to delete your Account?</p>
+                <ul class="cd-buttons">
+                    <li><a href="#0"><form action="/profile/<%= findUser.id %>?_method=DELETE" method="POST">
+                        <button type="submit" style="border: none !important; background: transparent; color: white;">Yes</button>
+                    </form></a></li>
+                    <li class="close-popup"><a href="#0">No</a></li>
+                </ul>
+                <a href="#0" class="cd-popup-close img-replace"></a>
+            </div> <!-- cd-popup-container -->
+        </div>
+
+<%- include('partials/footer'); -%>

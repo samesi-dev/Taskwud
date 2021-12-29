@@ -1,10 +1,20 @@
 var mongoose = require("mongoose");
 
-var commentSchema = new mongoose.Schema({
-    taskbame : String,
+var taskSchema = new mongoose.Schema({
+    taskname : String,
     instruction : String,
     status : String,
-    totalhours : String,
+    startDate : String,
+    startTime : String,
+    endDate : String,
+    endTime : String,
+    createdby: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String,
+    },
     Project : {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -12,13 +22,9 @@ var commentSchema = new mongoose.Schema({
         },
         projectname: String,
     },
-    projectmember : {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        username: String,
-    }
+    taskmember : [
+        
+    ]
 })
 
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = mongoose.model("Task", taskSchema);
