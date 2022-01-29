@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 
 var userDetailsSchema = new mongoose.Schema({
-    CNIC: String,
     city: String,
     country : String,
     gender : String,

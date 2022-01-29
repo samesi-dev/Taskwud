@@ -10,9 +10,6 @@ var express           = require("express"),
     multer            = require("multer"),
     flash             = require("connect-flash")
 
-// Requiring all the routes
-var indexRoutes       = require("./routes/index");
-var apiRoutes         = require("./routes/api-routes");
 
 // Requiring all the models
 var User = require('./models/user');
@@ -25,8 +22,8 @@ app.use(require("express-session")({
 }));
 
 // Connecting to mongo db database
-//mongoose.connect("mongodb://localhost/Taskwud", { useNewUrlParser: true , useUnifiedTopology: true});
-mongoose.connect("mongodb+srv://asad:rtaah2004@cluster0.1dkg4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost/Taskwud", { useNewUrlParser: true , useUnifiedTopology: true});
+//mongoose.connect("mongodb+srv://asad:rtaah2004@cluster0.1dkg4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true , useUnifiedTopology: true});
 
 // Enable the app to use different packages
 app.use(passport.initialize());
@@ -41,6 +38,7 @@ app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
+    req.email;
     next();
 })
 
@@ -51,6 +49,10 @@ passport.deserializeUser(User.deserializeUser());
    
 // Set the app view engine
 app.set("view engine", "ejs");
+
+// Requiring all the routes
+var indexRoutes       = require("./routes/index");
+var apiRoutes         = require("./routes/api-routes");
 
 // Enable the app to use the routes
 app.use("/", indexRoutes);

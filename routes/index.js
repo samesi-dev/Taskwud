@@ -16,35 +16,44 @@ var Project = require("../models/project");
 var UserData = require("../models/userData");
 
 router.get("/", isLoggedIn,function (req, res) {
-    Project.find({
-        "projectManager.id": req.user.id
-    }, function (err, findProjects) {
+    User.findById(req.user.id, function(err, findUser){
         if (err) {
             console.log(err);
         }
         else {
-            Task.find({
-                "createdby.id": req.user.id
-            }, function (err, findTasks) {
+            email = findUser.email;
+            Project.find({
+                "projectManager.id": req.user.id
+            }, function (err, findProjects) {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    Org.find({
+                    Task.find({
                         "createdby.id": req.user.id
-                    }, function (err, findOrgs) {
+                    }, function (err, findTasks) {
                         if (err) {
                             console.log(err);
                         }
                         else {
-                            res.render("user/index", { findProjects: findProjects, findTasks: findTasks, findOrgs: findOrgs, header: "Dashboard" });
+                            Org.find({
+                                "createdby.id": req.user.id
+                            }, function (err, findOrgs) {
+                                if (err) {
+                                    console.log(err);
+                                }
+                                else {
+                                    res.render("user/index", { findProjects: findProjects, findTasks: findTasks, findOrgs: findOrgs, header: "Dashboard" });
+                                };
+                            })
+                            
                         };
                     })
-                    
                 };
             })
-        };
+        }
     })
+    
 })
 
 router.get("/index", isLoggedIn,function (req, res) {
@@ -57,7 +66,6 @@ router.get("/user-details", isLoggedIn, function (req, res) {
 
 router.post("/user-details", isLoggedIn, function (req, res) {
     UserData.create({
-        CNIC : req.body.CNIC,
         city : req.body.city,
         country : req.body.country,
         gender : req.body.gender,
@@ -97,7 +105,6 @@ router.get("/user-details/edit", isLoggedIn, function (req, res) {
 
 router.put("/user-details/:id", isLoggedIn, function (req, res) {
     UserData.findByIdAndUpdate(req.params.id, {
-        CNIC : req.body.CNIC,
         city : req.body.city,
         country : req.body.country,
         gender : req.body.gender,
@@ -176,6 +183,16 @@ router.get("/login", function (req, res) {
 })
 
 router.get("/project", isLoggedIn, function (req, res) {
+    // Org.find({
+        
+    // }, function (err, findProjects) {
+    //     if (err) {
+    //         console.log(err);
+    //     }
+    //     else {
+    //         res.render("user/project", { findProjects: findProjects , header: "Project" });
+    //     };
+    // }))
     Project.find({
         "projectManager.id": req.user.id
     }, function (err, findProjects) {
@@ -480,13 +497,15 @@ router.put("/organization/:id", isLoggedIn, function (req, res) {
 });
 
 router.get("/organization", isLoggedIn, function (req, res) {
-    Org.find({
-        "createdby.id": req.user.id
-    }, function (err, findOrgs) {
+    Org.find({"orgmember" : { $in : [email]  } }, function (err, findOrgs) {
         if (err) {
             console.log(err);
         }
         else {
+            findOrgs.forEach(function(findOrg){
+                console.log(findOrg);
+            })  
+            
             res.render("user/organization", { findOrgs: findOrgs , header: "Organization"});
         };
     })
@@ -523,7 +542,7 @@ router.post("/organization", isLoggedIn, function (req, res) {
             newOrg.createdby.id = req.user._id;
             newOrg.createdby.username = req.user.username;
             var objs = req.body.users;
-            var i = 1;
+            var i = 0;
             objs.forEach(function (obj) {
                 i++
                 newOrg.orgmember.push(obj);
@@ -579,7 +598,8 @@ router.post("/search", function (req, res) {
 router.post("/register", function (req, res) {
     User.register(new User({
         username: req.body.username,
-        email: req.body.email
+        email: req.body.email,
+        designation : req.body.designation
     }), req.body.password, function (err, user) {
         if (err) {
             res.redirect("/register")
@@ -593,6 +613,7 @@ router.post("/register", function (req, res) {
 })
 
 router.post("/login", function (req, res) {
+
     passport.authenticate("local")(req, res, function () {
         if (req.isAuthenticated()) {
             res.redirect("/");

@@ -28,16 +28,24 @@
                                     <h4 class="text-center mb-4">Sign up your account</h4>
                                     <form action="/register" method="post">
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Username</strong></label>
-                                            <input type="text" name="username" class="form-control" placeholder="username">
+                                            <label class="mb-1"><strong>Username: </strong></label>
+                                            <input type="text" name="username" class="form-control" pattern="^(\d|\w)+$" title="Username should not contain any special characters and space. e.g. John" placeholder="username">
                                         </div>
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" name="email" class="form-control" placeholder="hello@example.com">
+                                            <label class="mb-1"><strong>Email: </strong></label>
+                                            <input type="text" name="email" class="form-control" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" title="Email should contain '@' and ends with '.com' e.g. John@example.com"placeholder="abc@example.com">
                                         </div>
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" name="password" class="form-control" placeholder="Password">
+                                            <label class="mb-1"><strong>Designation: </strong></label>
+                                            <select class="form-control" name="designation" id="designation" required>
+                                                <option value="" disabled selected>Select Designation</option>
+                                                <option value="Punjab">Employee</option>
+                                                <option value="Sindh">Manager</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Password: </strong></label>
+                                            <input type="password" name="password" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Password must contain minimum eight characters, at least one letter and one number" placeholder="Password">
                                         </div>
                                         <div class="text-center mt-4">
                                             <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
