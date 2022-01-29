@@ -60,6 +60,5 @@ app.use("/api", apiRoutes);
 
 // Enable the app to listen to the port to run on the localhost as well as on the server
 app.listen(process.env.PORT || 3000, function(){
-  
     console.log("The server has started");
 })
