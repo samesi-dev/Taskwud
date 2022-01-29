@@ -16,27 +16,45 @@ var Project = require("../models/project");
 var UserData = require("../models/userData");
 
 router.get("/", isLoggedIn,function (req, res) {
+<<<<<<< HEAD
     Project.find({
         "projectManager.id": req.user.id
     }, function (err, findProjects) {
+=======
+    User.findById(req.user.id, function(err, findUser){
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
         if (err) {
             console.log(err);
         }
         else {
+<<<<<<< HEAD
             Task.find({
                 "createdby.id": req.user.id
             }, function (err, findTasks) {
+=======
+            email = findUser.email;
+            Project.find({
+                "projectManager.id": req.user.id
+            }, function (err, findProjects) {
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
                 if (err) {
                     console.log(err);
                 }
                 else {
+<<<<<<< HEAD
                     Org.find({
                         "createdby.id": req.user.id
                     }, function (err, findOrgs) {
+=======
+                    Task.find({
+                        "createdby.id": req.user.id
+                    }, function (err, findTasks) {
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
                         if (err) {
                             console.log(err);
                         }
                         else {
+<<<<<<< HEAD
                             res.render("user/index", { findProjects: findProjects, findTasks: findTasks, findOrgs: findOrgs, header: "Dashboard" });
                         };
                     })
@@ -45,6 +63,26 @@ router.get("/", isLoggedIn,function (req, res) {
             })
         };
     })
+=======
+                            Org.find({
+                                "createdby.id": req.user.id
+                            }, function (err, findOrgs) {
+                                if (err) {
+                                    console.log(err);
+                                }
+                                else {
+                                    res.render("user/index", { findProjects: findProjects, findTasks: findTasks, findOrgs: findOrgs, header: "Dashboard" });
+                                };
+                            })
+                            
+                        };
+                    })
+                };
+            })
+        }
+    })
+    
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
 })
 
 router.get("/index", isLoggedIn,function (req, res) {
@@ -57,7 +95,10 @@ router.get("/user-details", isLoggedIn, function (req, res) {
 
 router.post("/user-details", isLoggedIn, function (req, res) {
     UserData.create({
+<<<<<<< HEAD
         CNIC : req.body.CNIC,
+=======
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
         city : req.body.city,
         country : req.body.country,
         gender : req.body.gender,
@@ -80,6 +121,7 @@ router.post("/user-details", isLoggedIn, function (req, res) {
             res.redirect("/");
         }
     });
+<<<<<<< HEAD
 })
 
 router.get("/user-details/edit", isLoggedIn, function (req, res) {
@@ -124,6 +166,51 @@ router.put("/user-details/:id", isLoggedIn, function (req, res) {
     });
 })
 
+=======
+})
+
+router.get("/user-details/edit", isLoggedIn, function (req, res) {
+    UserData.findOne({
+        "User.id": req.user.id
+    }, function (err, findUserData) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.render("user/edit-user-details", {findUserData : findUserData});
+        };
+    }) 
+})
+
+router.put("/user-details/:id", isLoggedIn, function (req, res) {
+    UserData.findByIdAndUpdate(req.params.id, {
+        city : req.body.city,
+        country : req.body.country,
+        gender : req.body.gender,
+        contact : req.body.contact,
+        jobName : req.body.jobName,
+        jobExperience : req.body.jobExperience,
+        about : req.body.about,
+    }, function (err, userData) {
+        if (err) {
+            res.redirect("/user-details/edit");
+        }
+        else {
+            userData.User.id = req.user._id;
+            userData.User.username = req.user.username;
+            var objs = req.body.users;
+            if (objs != null){
+                objs.forEach(function (obj) {
+                    userData.skills.push(obj);
+                });
+            }            
+            userData.save();
+            res.redirect("/profile");
+        }
+    });
+})
+
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
 router.get("/profile", isLoggedIn ,function (req, res) {
     User.findById(req.user.id, function (err, findUser) {
         if (err) {
@@ -176,6 +263,19 @@ router.get("/login", function (req, res) {
 })
 
 router.get("/project", isLoggedIn, function (req, res) {
+<<<<<<< HEAD
+=======
+    // Org.find({
+        
+    // }, function (err, findProjects) {
+    //     if (err) {
+    //         console.log(err);
+    //     }
+    //     else {
+    //         res.render("user/project", { findProjects: findProjects , header: "Project" });
+    //     };
+    // }))
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
     Project.find({
         "projectManager.id": req.user.id
     }, function (err, findProjects) {
@@ -383,6 +483,7 @@ router.put("/task/:taskId", isLoggedIn, function (req, res) {
             }
             task.save();
             res.redirect("/task");
+<<<<<<< HEAD
         }
     });
 })
@@ -434,10 +535,66 @@ router.get("/organization/:id/view", isLoggedIn, function (req, res) {
                 };
             })
             
+=======
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
         }
     });
 })
 
+<<<<<<< HEAD
+=======
+router.delete("/task/:taskID", isLoggedIn, function (req, res) {
+    Task.findByIdAndRemove(req.params.taskID, function (err, Org) {
+        if (err) {
+            res.redirect("/task");
+        }
+        else {
+            res.redirect("/task");
+            console.log("Successfully deleted the file.")
+        }
+    });
+});
+
+router.get("/task/:taskId/complete", isLoggedIn, function (req, res) {
+    Task.findByIdAndUpdate(req.params.taskId, {
+        status: "Completed",
+    }, function (err, task) {
+        if (err) {
+            res.redirect(err);
+        }
+        else {
+            res.redirect("/task");
+        }
+    });
+})
+
+router.get("/organization/new", isLoggedIn, function (req, res) {
+    res.render("user/neworganization", {header: "Organization"})
+})
+
+
+router.get("/organization/:id/view", isLoggedIn, function (req, res) {
+    Org.findById(req.params.id, function (err, FindOrg) {
+        if (err) {
+            console.log("Error");
+        }
+        else {
+            Project.find({
+                "projectManager.id": req.user.id
+            }, function (err, findProjects) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.render("user/vieworganization", { Org: FindOrg, findProjects: findProjects, header: "Organization" });
+                };
+            })
+            
+        }
+    });
+})
+
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
 
 router.get("/organization/:id/update", function (req, res) {
     Org.findById(req.params.id, function (err, FindOrg) {
@@ -480,13 +637,24 @@ router.put("/organization/:id", isLoggedIn, function (req, res) {
 });
 
 router.get("/organization", isLoggedIn, function (req, res) {
+<<<<<<< HEAD
     Org.find({
         "createdby.id": req.user.id
     }, function (err, findOrgs) {
+=======
+    Org.find({"orgmember" : { $in : [email]  } }, function (err, findOrgs) {
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
         if (err) {
             console.log(err);
         }
         else {
+<<<<<<< HEAD
+=======
+            findOrgs.forEach(function(findOrg){
+                console.log(findOrg);
+            })  
+            
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
             res.render("user/organization", { findOrgs: findOrgs , header: "Organization"});
         };
     })
@@ -523,7 +691,11 @@ router.post("/organization", isLoggedIn, function (req, res) {
             newOrg.createdby.id = req.user._id;
             newOrg.createdby.username = req.user.username;
             var objs = req.body.users;
+<<<<<<< HEAD
             var i = 1;
+=======
+            var i = 0;
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
             objs.forEach(function (obj) {
                 i++
                 newOrg.orgmember.push(obj);
@@ -564,6 +736,7 @@ router.post("/search", function (req, res) {
                         }
                     }
                 })
+<<<<<<< HEAD
             }
             if (hint === "") {
                 response = "no response";
@@ -571,6 +744,15 @@ router.post("/search", function (req, res) {
             else {
                 response = hint;
             }
+=======
+            }
+            if (hint === "") {
+                response = "no response";
+            }
+            else {
+                response = hint;
+            }
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
             res.send({ response: response })
         });
     }
@@ -579,7 +761,12 @@ router.post("/search", function (req, res) {
 router.post("/register", function (req, res) {
     User.register(new User({
         username: req.body.username,
+<<<<<<< HEAD
         email: req.body.email
+=======
+        email: req.body.email,
+        designation : req.body.designation
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
     }), req.body.password, function (err, user) {
         if (err) {
             res.redirect("/register")
@@ -588,6 +775,7 @@ router.post("/register", function (req, res) {
             passport.authenticate("local")(req, res, function () {
                 res.redirect("/user-details");
             });
+<<<<<<< HEAD
         }
     });
 })
@@ -597,10 +785,23 @@ router.post("/login", function (req, res) {
         if (req.isAuthenticated()) {
             res.redirect("/");
         }
+=======
+        }
+    });
+})
+
+router.post("/login", function (req, res) {
+
+    passport.authenticate("local")(req, res, function () {
+        if (req.isAuthenticated()) {
+            res.redirect("/");
+        }
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
         else
             res.redirect("/login");
     }
     );
+<<<<<<< HEAD
 })
 
 router.get('/logout', function (req, res) {
@@ -609,6 +810,16 @@ router.get('/logout', function (req, res) {
     
 })
 
+=======
+})
+
+router.get('/logout', function (req, res) {
+    req.logOut();
+    res.redirect('/');
+    
+})
+
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();

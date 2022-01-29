@@ -1,7 +1,10 @@
 var mongoose = require("mongoose");
 
 var userDetailsSchema = new mongoose.Schema({
+<<<<<<< HEAD
     CNIC: String,
+=======
+>>>>>>> 10c9e96c8cc6640f3fbf10b2de73b2c555ae419e
     city: String,
     country : String,
     gender : String,
