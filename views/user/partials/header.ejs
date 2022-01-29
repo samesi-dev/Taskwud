@@ -14,21 +14,36 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>Workload Project Management</title>
+	<title>Taskwud</title>
 	
+	<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="/images/logo.png">
 
-    <link href="vendor/fullcalendar/css/main.min.css" rel="stylesheet">
-	<link href="vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="/vendor/fullcalendar/css/main.min.css" rel="stylesheet">
+	<link href="/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 		
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	
 </head>
 
 <body>
+	<!--*******************
+        Preloader start
+    ********************-->
+	<div id="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+		</div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
 
+	
     <!--**********************************
         Main wrapper start
     ***********************************-->
@@ -40,10 +55,10 @@
      <div class="nav-header">
             <a href="index.html" class="brand-logo">
 				<div class="mt-3">
-					<img src="images/logo.png" alt="">
+					<img src="/images/logo.png" alt="">
 				</div>
 				<div class="brand-title">
-					<img src="images/Taskwud.png" alt="">
+					<img src="/images/Taskwud.png" alt="">
 				</div>
             </a>
             <div class="nav-control">
@@ -90,7 +105,7 @@
 									<li class="active dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/1.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -102,7 +117,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/2.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -114,7 +129,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/3.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -126,7 +141,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/4.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -139,7 +154,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/5.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -151,7 +166,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/1.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -163,7 +178,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/2.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -176,7 +191,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/3.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -188,7 +203,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/4.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -201,7 +216,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/5.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -213,7 +228,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/1.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -225,7 +240,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/2.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -237,7 +252,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/3.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -250,7 +265,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/4.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -262,7 +277,7 @@
 									<li class="dlab-chat-user">
 										<div class="d-flex bd-highlight">
 											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
+												<img src="/images/avatar/5.jpg" class="rounded-circle user_img" alt="">
 												<span class="online_icon offline"></span>
 											</div>
 											<div class="user_info">
@@ -296,7 +311,7 @@
 							<div class="card-body msg_card_body dlab-scroll" id="DLAB_W_Contacts_Body3">
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										Hi, how are you samim?
@@ -309,12 +324,12 @@
 										<span class="msg_time_send">8:55 AM, Today</span>
 									</div>
 									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+								<img src="/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										I am good too, thank you for your chat template
@@ -327,12 +342,12 @@
 										<span class="msg_time_send">9:05 AM, Today</span>
 									</div>
 									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+								<img src="/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										I am looking for your next templates
@@ -345,12 +360,12 @@
 										<span class="msg_time_send">9:10 AM, Today</span>
 									</div>
 									<div class="img_cont_msg">
-										<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										Bye, see you
@@ -359,7 +374,7 @@
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										Hi, how are you samim?
@@ -372,12 +387,12 @@
 										<span class="msg_time_send">8:55 AM, Today</span>
 									</div>
 									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+								<img src="/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										I am good too, thank you for your chat template
@@ -390,12 +405,12 @@
 										<span class="msg_time_send">9:05 AM, Today</span>
 									</div>
 									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+								<img src="/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										I am looking for your next templates
@@ -408,12 +423,12 @@
 										<span class="msg_time_send">9:10 AM, Today</span>
 									</div>
 									<div class="img_cont_msg">
-										<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 								</div>
 								<div class="d-flex justify-content-start mb-4">
 									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+										<img src="/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
 									</div>
 									<div class="msg_cotainer">
 										Bye, see you
@@ -567,7 +582,7 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
 							<div class="dashboard_bar">
-                                Dashboard
+                                <%= header %>
                             </div>
 							
                         </div>
@@ -592,7 +607,7 @@
 											<li>
 												<div class="timeline-panel">
 													<div class="media me-2">
-														<img alt="image" width="50" src="images/avatar/1.jpg">
+														<img alt="image" width="50" src="/images/avatar/1.jpg">
 													</div>
 													<div class="media-body">
 														<h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -625,7 +640,7 @@
 											 <li>
 												<div class="timeline-panel">
 													<div class="media me-2">
-														<img alt="image" width="50" src="images/avatar/1.jpg">
+														<img alt="image" width="50" src="/images/avatar/1.jpg">
 													</div>
 													<div class="media-body">
 														<h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -736,14 +751,13 @@
 							</li>
 							<li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                                    <img src="images/user.jpg" width="20" alt="">
-									<div class="header-info ms-3">
-										<span class="fs-18 font-w500 mb-2">Franklin Jr.</span>
-										<small class="fs-12 font-w400">demo@gmail.com</small>
+									<div class="circle"><%= currentUser.username.charAt(0) %></div>
+									<div class="header-info mt-2">
+										<span class="fs-18 font-w500 mb-2"><%= currentUser.username %></span>
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="app-profile.html" class="dropdown-item ai-icon">
+                                    <a href="/profile" class="dropdown-item ai-icon">
                                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <span class="ms-2">Profile </span>
                                     </a>
@@ -751,7 +765,7 @@
                                         <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                         <span class="ms-2">Inbox </span>
                                     </a>
-                                    <a href="page-error-404.html" class="dropdown-item ai-icon">
+                                    <a href="/logout" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ms-2">Logout </span>
                                     </a>
@@ -773,14 +787,14 @@
 		<div class="dlabnav">
             <div class="dlabnav-scroll">
 				<ul class="metismenu" id="menu">
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a href="/" aria-expanded="false">
 							<i class="fas fa-home"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
 
                     </li>
 					
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a href="javascript:void()" aria-expanded="false">
 						<i class="fas fa-users"></i>
 							<span class="nav-text">Teams</span>
 						</a>
@@ -790,7 +804,7 @@
 							<span class="nav-text">Report</span>
 						</a>
                     </li>
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow " href="/task" aria-expanded="false">
 							<i class="fa fa-tasks"></i>
 							<span class="nav-text">Tasks</span>
 						</a>
@@ -805,23 +819,17 @@
 							<span class="nav-text">Chat</span>
 						</a>
 					</li>
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                    <li><a href="/Project" aria-expanded="false">
 							<i class="fas fa-table"></i>
 							<span class="nav-text">Project</span>
 						</a>
                     </li>
+					<li><a href="/organization"  href="javascript:void()" aria-expanded="false">
+						<i class="fas fa-table"></i>
+						<span class="nav-text">Organization</span>
+					</a>
+				</li>
                 </ul>
-				<div class="plus-box">
-					<div class="text-center">
-						<h4 class="fs-18 font-w600 mb-4">Enable Workload Automation System</h4>
-						<a href="javascript:void(0);" class="btn btn-primary btn-rounded">Learn more <i class="fas fa-caret-right"></i></a>
-					</div>
-				</div>
-				
-				<div class="copyright">
-					<p><strong>Workload Project Management</strong> © 2021 All Rights Reserved</p>
-					<p class="fs-12">Made with <span class="heart"></span> by DexignLab</p>
-				</div>
 			</div>
         </div>
         <!--**********************************

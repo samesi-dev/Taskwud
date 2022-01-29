@@ -1,4 +1,5 @@
 // Requiring all the packages
+
 var express           = require("express"),
     app               = express(),
     methodOverride    = require("method-override"),
@@ -29,10 +30,11 @@ mongoose.connect("mongodb+srv://asad:rtaah2004@cluster0.1dkg4.mongodb.net/myFirs
 
 // Enable the app to use different packages
 app.use(passport.initialize());
-app.use(flash());
 app.use(passport.session());
+app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(methodOverride("_method"));
 
 // using session
 app.use(function(req, res, next){
@@ -56,5 +58,6 @@ app.use("/api", apiRoutes);
 
 // Enable the app to listen to the port to run on the localhost as well as on the server
 app.listen(process.env.PORT || 3000, function(){
+  
     console.log("The server has started");
 })

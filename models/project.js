@@ -1,25 +1,19 @@
 var mongoose = require("mongoose");
 
-var commentSchema = new mongoose.Schema({
-    projectbame : String,
+var projectSchema = new mongoose.Schema({
+    projectname : String,
     filetype : String,
     startDate : String,
     startTime : String,
     endDate : String,
     endTime : String,
-    status : String,
     category : String,
-    totalhours : String,
     budget : String,
-    remarks : String,
-    logo : String,
-    User : {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        projectname: String,
-    },
+    description : String,
+    projectcreated: String,
+    projectteam : [
+        
+    ],
     projectManager : {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -29,4 +23,4 @@ var commentSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = mongoose.model("Project", projectSchema);

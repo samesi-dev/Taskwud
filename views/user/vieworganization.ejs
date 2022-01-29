@@ -1,0 +1,217 @@
+<%- include('./partials/header'); -%>
+
+			
+        <!--**********************************
+            Content body end
+        ***********************************-->
+		
+		<div class="content-body">
+			<!-- row -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="card overflow-hidden">
+								
+									<div class="card-body">
+										<div class="row d-flex justify-content-between border-bottom pb-5">
+											<div class="col-xl-8 col-lg-8">
+												<div>
+													<h4 class="fs-32 font-w700"><%= Org.orgname %></h4>
+													<span class="mb-2 d-block">Created by <%= Org.createdby.username %> on <%= Org.orgcreated %></span>
+													<div class="workload-button">
+														
+														<a href="javascript:void(0);" class="btn btn-primary light btn-rounded"><i class="fas fa-user-plus scale2 me-3"></i>Invite People</a>
+														<a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModalLong" class="btn btn-outline-light btn-rounded">See All Members</a>
+
+													</div>
+												</div>
+												
+											</div>
+											<div class="col-xl-4 col-lg-4">
+												<div class="kanbanimg1">
+													<div class="dropdown ms-3">
+														<div class="btn-link" data-bs-toggle="dropdown">
+															<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<circle cx="12.4999" cy="3.5" r="2.5" fill="#A5A5A5"></circle>
+																<circle cx="12.4999" cy="11.5" r="2.5" fill="#A5A5A5"></circle>
+																<circle cx="12.4999" cy="19.5" r="2.5" fill="#A5A5A5"></circle>
+															</svg>
+														</div>
+														<div class="dropdown-menu dropdown-menu-right">
+																			
+															<a href="/organization/<%= Org._id %>/update" class="dropdown-item" >Edit</a>
+															<form action="/organization/<%= Org._id %>?_method=DELETE" method="POST">
+																<button type="submit" class="dropdown-item">Delete</button>
+															</form>
+														</div>
+													</div>
+												</div>
+												<div class="kanbanimg1">
+													<ul class="kanbanimg me-3 mb-3">
+													<% Org.orgmember.forEach(function(member){ %>
+														<li><div class="circle-4"><%= member.charAt(0) %></div></li>
+													<% }) %>
+														<li><span><%= Org.orgnumber %></span></li>
+													</ul>
+												</div>	
+											</div>
+											
+											<div class="col-xl-3 mt-4 col-sm-6">
+												<div class="d-flex">
+													<span><i class="far fa-building scale5 text-primary mt-2 me-3"></i></span>
+													<div>
+														<h4 class="fs-18 font-w500 text-black"><b>Address</b></h4>
+														<span><%= Org.orgaddress %></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 mt-4 col-sm-6">
+												<div class="d-flex">
+													<span><i class="fas fa-phone scale5 text-primary mt-2 me-3"></i></span>
+													<div>
+														<h4 class="fs-18 font-w500 text-black"><b>
+															Contact
+														</b></h4>
+														<span><%= Org.orgcontact %></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-6 mt-4 col-sm-12">
+												<div class="d-flex">
+													<span><i class="far fa-envelope scale5 text-primary mt-2 me-3"></i></span>
+													<div>
+														<h4 class="fs-18 font-w500 text-black"> <b>Email</b></h4>
+														<span><%= Org.orgemail %></span>
+													</div>
+												</div>
+											
+												
+											</div>
+										</div>
+										<div class="project-description">
+											<span class="fs-18 font-w500 mb-3 d-block"> <b>DESCRIPTION</b></span>
+											<p class="fs-18 font-w500">
+												<%= Org.orgdescription %>
+											</p>
+										
+										</div>
+										<div class="message1">
+											<textarea class="form-control" id="mytextarea" rows="4" placeholder="Type comment here..."></textarea>
+										   <div class="msg-button">
+											   <div>
+													<a href="#" class="cd-popup-trigger"><i class="fas fa-smile"></i></a>
+											   </div>
+											   <div style="padding-right: 30px;">
+												<label for="file">
+													<i class="fa fa-paperclip"></i>
+												   </label>
+												   <input id="file" name="file" type="file" multiple hidden onchange="loadFile(this.value)"/>
+											   </div>
+											   <div style="padding-right: 20px;">
+												   <a href="javascript:void(0);" class="btn btn-primary"><i class="fas fa-paper-plane me-2 text-white fs-18 btn-rounded"></i>SEND</a>
+											   </div>
+										   </div>
+									   </div>
+									</div>
+									
+								</div>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="modal fade" id="exampleModalLong">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">All Members</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
+							</div>
+							<div class="modal-body">
+								<% Org.orgmember.forEach(function(obj){ %>
+									
+									<div class="basic-list-group">
+										<ul class="list-group">
+											<li class="list-group-item"><%= obj %></li>
+										
+										</ul>
+										<% }) %>
+									</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">	
+					<div class="col-xl-12">
+						<div class="card">
+							<div class="card-header border-0">
+								<div>
+									<h3 class="fs-20 font-w700">Projects</h3>
+								</div>
+								<div class="dropdown">
+									<div class="btn-link" data-bs-toggle="dropdown">
+										<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="12.4999" cy="3.5" r="2.5" fill="#A5A5A5"></circle>
+											<circle cx="12.4999" cy="11.5" r="2.5" fill="#A5A5A5"></circle>
+											<circle cx="12.4999" cy="19.5" r="2.5" fill="#A5A5A5"></circle>
+										</svg>
+									</div>
+									<div class="dropdown-menu dropdown-menu-right">
+										<a class="dropdown-item" href="javascript:void(0)">Delete</a>
+										<a class="dropdown-item" href="javascript:void(0)">Edit</a>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<% findProjects.forEach(function(findProject){ %>
+									<a class="col-xl-3 col-lg-12 col-sm-12" href="/project/<%= findProject.id %>">
+										
+										  <div class="card overflow-hidden">
+											<div class="text-center p-3 overlay-box">
+												
+												<div class="p-0">
+													<div class="circle-2"><%= findProject.projectname.charAt(0) %></div>
+												</div>
+												<p class="text-white mb-0"><%= findProject.orgdescription %></p>
+											</div>
+											<ul class="list-group list-group-flush">
+												<li class="list-group-item d-flex justify-content-center fs-18 font-w500 mb-3"><strong><%= findProject.projectname %></strong></li>
+											</ul>
+										  </div>
+										
+									</a>
+									<% }) %>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+		</div>
+
+		
+
+		
+		
+		<div class="cd-popup possition-relative" id="emojipopup" role="alert">
+            <div class="cd-popup-container" id="emoji">
+                <emoji-picker></emoji-picker>
+                <a href="#0" class="cd-popup-close img-replace"></a>
+            </div> <!-- cd-popup-container -->
+        </div>
+
+		<%- include('partials/footer'); -%>
