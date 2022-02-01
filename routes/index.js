@@ -23,6 +23,7 @@ router.get("/", isLoggedIn,function (req, res) {
         else {
             role = findUser.designation;
             email = findUser.email;
+            console.log(role);
             Project.find({
                 "projectManager.id": req.user.id
             }, function (err, findProjects) {

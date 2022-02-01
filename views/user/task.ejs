@@ -54,7 +54,7 @@
 											<% } else { %>
 												<td><span class="badge badge-rounded badge-success"><%= findTask.status %></span></td>
 											<% } %> %>
-											
+											<% if (role == "Manager"){ %>
 											<td>
 												<div class="dropdown custom-dropdown mb-0">
 													<div class="btn sharp btn-primary tp-btn" data-bs-toggle="dropdown">
@@ -69,6 +69,7 @@
 													</div>
 												</div>
 											</td>
+											<% } %>
 										</tr>
 									<% }) %>
 								</tbody>

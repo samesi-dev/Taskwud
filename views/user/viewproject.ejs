@@ -22,8 +22,9 @@
 													<h4 class="fs-32 font-w700"><%= findProject.projectname %></h4>
 													<span class="mb-2 d-block">Created by<%= findProject.projectManager.username %> on <%= findProject.projectcreated %></span>
 													<div class="workload-button">
-														
+														<% if (role == "Manager"){ %>
 														<a href="javascript:void(0);" class="btn btn-primary light btn-rounded"><i clazss="fas fa-user-plus scale2 me-3"></i>Invite People</a>
+														<% } %>
 														<a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModalLong" class="btn btn-outline-light btn-rounded">See All Members</a>
 
 													</div>
@@ -31,6 +32,7 @@
 												
 											</div>
 											<div class="col-xl-4 col-lg-4">
+												<% if (role == "Manager"){ %>
 												<div class="kanbanimg1">
 													<div class="dropdown ms-3">
 														<div class="btn-link" data-bs-toggle="dropdown">
@@ -49,7 +51,8 @@
 														</div>
 													</div>
 												</div>
-												<div class="kanbanimg1">
+												<% } %>
+												<div class="kanbanimg1 mt-4">
 													<ul class="kanbanimg me-3 mb-3">
 													<% findProject.projectteam.forEach(function(member){ %>
 														<li><div class="circle-4"><%= member.charAt(0) %></div></li>
