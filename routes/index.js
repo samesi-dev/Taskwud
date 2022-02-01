@@ -21,6 +21,7 @@ router.get("/", isLoggedIn,function (req, res) {
             console.log(err);
         }
         else {
+            role = findUser.designation;
             email = findUser.email;
             Project.find({
                 "projectManager.id": req.user.id

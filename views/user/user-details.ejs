@@ -36,11 +36,11 @@
 									<div class="text-center mb-3">
 										<a href="/"><img src="images/logo.png" alt=""><img src="images/Taskwud.png" alt=""></a>
 									</div>
-                                    <h4 class="text-center mb-4">Add Personal Details</h4>
+                                    <h4 class="text-center mb-4">Personal Details</h4>
                                         <div class="row justify-content-center mt-4">
                                             <div class="mb-0 col-5">
                                                 <label class="mb-1"><strong>About</strong></label>
-                                                <textarea type="text" rows="6" name="about" class="form-control h-75" required></textarea>
+                                                <textarea type="text" rows="6" name="about" class="form-control h-75" pattern="^[a-zA-Z\s]*$" title="It should only contain letters" required></textarea>
                                             </div>
                                         </div>
                                         <!-- <div class="row justify-content-center">
@@ -52,13 +52,13 @@
                                         <div class="row justify-content-center mt-3">
                                             <div class="mb-0 col-5">
                                                 <label class="mb-1"><strong>City</strong></label>
-                                                <input type="text" name="city" class="form-control" placeholder="Enter City" pattern="^(\w)+$"" title="It should only contain letters" required>
+                                                <input type="text" name="city" class="form-control" placeholder="Enter City" pattern="^[a-zA-Z\s]*$" title="It should only contain letters" required>
                                             </div>
                                         </div>
                                         <div class="row justify-content-center mt-3">
                                             <div class="mb-0 col-5">
                                                 <label class="mb-1"><strong>Country</strong></label>
-                                                <select class="form-control" name="Gender" id="Gender" required>
+                                                <select class="form-control" name="country" id="country" required>
                                                     <option value="" disabled selected>Select Country</option>
                                                     <option value="Afghanistan">Afghanistan</option>
                                                     <option value="Albania">Albania</option>
@@ -305,56 +305,31 @@
                                         <div class="row justify-content-center mt-3">
                                             <div class="mb-0 col-5">
                                                 <label class="mb-1"><strong>Gender</strong></label>
-                                                <select class="form-control" name="Gender" id="Gender" required>
+                                                <select class="form-control" name="gender" id="gender" required>
                                                     <option value="" disabled selected>Select Gender</option>
-                                                    <option value="Punjab">Male</option>
-                                                    <option value="Sindh">Female</option>
-                                                    <option value="Sindh">Others</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="others">Others</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row justify-content-center mt-3">
-                                            <div class="mb-0 col-5">
+                                            <div class="mb-4 col-5">
                                                 <label class="mb-1"><strong>Contact No.</strong></label>
-                                                <input type="text" name="contact" class="form-control" placeholder="Contact No." pattern="^(\d)+$"" title="It should only contain digits" required>
+                                                <input type="text" name="contact" class="form-control" placeholder="Contact No." pattern="^(\d)+$" title="It should only contain digits" required>
                                             </div>
                                         </div>
-                                        <div class="row justify-content-center mt-4">
-                                            <div class="col-4">
-
-                                            </div>
-                                            <div class="text-center col-1">
-                                                <button type="button" onclick="forwardForm();" class="btn btn-primary btn-block">Next</button>
-                                            </div>
-                                        </div>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="professional-details container-fluid h-100 p-0">
-            <div class="row justify-content-center h-100 align-items-center">
-                <div class="col-md-12 h-100">
-                    <div class="authincation-content h-100">
-                        <div class="row no-gutters h-100">
-                            <div class="col-xl-12">
-                                <div class="auth-form">
-									<div class="text-center mb-4">
-										<a href="/"><img src="images/logo.png" alt=""><img src="images/Taskwud.png" alt=""></a>
-									</div>
-                                    <h4 class="text-center mb-4">Add Professional Details</h4>
+                                        <h4 class="text-center m-4">Professional Details</h4>
                                         <div class="row justify-content-center mt-4">
                                             <div class="col-5">
                                                 <label class="mb-1"><strong>Job Name</strong></label>
-                                                <input type="text" name="jobName" class="form-control" placeholder="Enter your Job Name" pattern="^(\w)+$"" title="It should only contain letters" required>
+                                                <input type="text" name="jobName" class="form-control" placeholder="Enter your Job Name" pattern="^[a-zA-Z\s]*$" title="It should only contain letters" required>
                                             </div>
                                         </div>
                                         <div class="row justify-content-center mt-4">
                                             <div class="col-5">
                                                 <label class="mb-1"><strong>Job Experience</strong></label>
-                                                <input type="text" name="jobExperience" class="form-control" placeholder="Enter your Job Experience" pattern="^(\d)+$"" title="It should only contain Digits" required>
+                                                <input type="text" name="jobExperience" class="form-control" placeholder="Enter your Job Experience in years e.g 5" pattern="^(\d)+$" title="It should only contain Digits" required>
                                             </div>
                                         </div>
                                         <div class="row justify-content-center mt-3">
