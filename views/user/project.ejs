@@ -6,6 +6,7 @@
      
         <div class="content-body">
         <div class="container-fluid">
+			<% if (role == "Manager"){ %>
 			<div class="col-xl-12">
 				<div class="card bg-progradient manage-project">
 					<div class="card-body">
@@ -20,6 +21,7 @@
 					</div>
 				</div>
 			</div>
+			<% } %>
 		
 				<div class="row">
 					<% findProjects.forEach(function(findProject){ %>
